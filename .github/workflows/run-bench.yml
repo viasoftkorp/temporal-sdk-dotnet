@@ -10,6 +10,7 @@ jobs:
     runs-on: buildjet-4vcpu-ubuntu-2204
     env:
       RestoreLockedMode: true
+      CargoCommand: rustup run stable cargo
     steps:
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6

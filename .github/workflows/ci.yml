@@ -13,6 +13,7 @@ jobs:
   build-lint-test:
     env:
       RestoreLockedMode: true
+      CargoCommand: rustup run stable cargo
     strategy:
       fail-fast: false
       matrix:
