@@ -42,6 +42,7 @@ to docs, or any other relevant information.
   exception is reported as `Invalid operation input`, which is distinct from the `failed to decode
   Nexus operation input` message used when decoding itself fails. Application failures of any other
   error type, and retryable `PayloadValidationError` failures, keep their existing behavior.
+- The test suite dev server is now `v1.8.3-server-1.32.0-162.0`.
 
 ## [1.18.0] - 2026-08-13
 
