@@ -71,7 +71,7 @@ public sealed class WorkflowEnvironment : IAsyncLifetime, IAsyncDisposable
             {
                 DevServerOptions = new()
                 {
-                    DownloadVersion = "v1.7.2-standalone-nexus-operations",
+                    DownloadVersion = "v1.8.3-server-1.32.0-162.0",
                     ExtraArgs = new List<string>
                     {
                         // Disable search attribute cache
@@ -99,6 +99,7 @@ public sealed class WorkflowEnvironment : IAsyncLifetime, IAsyncDisposable
                         "--dynamic-config-value", "history.enableChasm=true",
                         "--dynamic-config-value", "history.enableTransitionHistory=true",
                         "--dynamic-config-value", "activity.startDelayEnabled=true",
+                        "--dynamic-config-value", "activity.enableCallbacks=true",
                         // Enable standalone Nexus operations
                         "--dynamic-config-value", "callback.allowedAddresses=[{\"Pattern\":\"*\",\"AllowInsecure\":true}]", // SDK tests use arbitrary callback URLs, permit that on the server
                         "--dynamic-config-value", "nexusoperation.enableStandalone=true",

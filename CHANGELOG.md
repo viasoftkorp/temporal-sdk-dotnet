@@ -22,8 +22,7 @@ to docs, or any other relevant information.
 ### Added                   — new features
 - Support Workflow Queries as Nexus operations. A query issued from inside a Nexus operation handler
   now propagates the link the server returns for the workflow that processed it, so the caller's
-  Nexus operation event points back at the queried workflow. Requires a server that populates
-  `QueryWorkflowResponse.link`; older servers leave it unset and nothing is propagated.
+  Nexus operation event points back at the queried workflow. 
 - Added `PayloadValidationError.CreateException`, which payload converters and codecs can use to
   report invalid Nexus operation input with structured details.
 - 
@@ -35,9 +34,7 @@ to docs, or any other relevant information.
   match the other SDKs. Inbound workflow links are now parsed as well, and a link with a trailing
   path segment is rejected.
 - A Nexus operation backed by a workflow query now fails when the query fails or is rejected, rather
-  than being retried until the operation times out. `WorkflowQueryFailedException` and
-  `WorkflowQueryRejectedException` map to a non-retryable `BadRequest` handler error, since neither
-  outcome can change on a retry.
+  than being retried until the operation times out.
 - A non-retryable `ApplicationFailureException` with error type `PayloadValidationError` thrown by a
   payload codec or payload converter while decoding Nexus operation input is now reported as a
   non-retryable `BadRequest` handler exception (with the application failure as its cause) instead of

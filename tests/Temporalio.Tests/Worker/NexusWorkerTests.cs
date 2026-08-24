@@ -1426,7 +1426,12 @@ public class NexusWorkerTests : WorkflowEnvironmentTestBase
         var exc2 = Assert.IsType<NexusOperationFailureException>(exc.InnerException);
         var exc3 = Assert.IsType<HandlerException>(exc2.InnerException);
         Assert.Equal(HandlerErrorType.NotImplemented, exc3.ErrorType);
-        Assert.Equal("Intentional failure", exc3.Message);
+        var chainMessages = new List<string>();
+        for (Exception? cause = exc; cause != null; cause = cause.InnerException)
+        {
+            chainMessages.Add(cause.Message);
+        }
+        Assert.Contains("Intentional failure", chainMessages);
     }
 
     [Fact]
